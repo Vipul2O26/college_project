@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2024 at 11:40 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Generation Time: Jul 22, 2025 at 11:38 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,66 +32,16 @@ CREATE TABLE `audit` (
   `user_name` varchar(50) NOT NULL,
   `type` varchar(10) NOT NULL,
   `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `audit`
 --
 
 INSERT INTO `audit` (`Audit_id`, `user_name`, `type`, `date`) VALUES
-(1, 'admin', 'admin', '2024-11-23 12:30:49'),
-(2, 'rushi', 'client', '2024-11-23 12:32:47'),
-(3, 'admin', 'admin', '2024-11-23 12:34:04'),
-(4, 'rushi', 'client', '2024-11-23 13:58:42'),
-(5, 'admin', 'admin', '2024-11-23 13:59:15'),
-(6, 'vipul', 'user', '2024-11-23 14:28:56'),
-(7, 'vipul', 'user', '2024-11-23 14:29:57'),
-(8, 'vipul', 'user', '2024-11-23 14:50:58'),
-(9, 'vipul', 'user', '2024-11-23 14:58:36'),
-(10, 'admin', 'admin', '2024-11-23 14:58:57'),
-(11, 'vipul', 'user', '2024-11-23 15:32:11'),
-(12, 'vipul', 'user', '2024-11-23 15:32:50'),
-(13, 'rushi', 'client', '2024-11-23 15:40:33'),
-(14, 'vipul', 'user', '2024-11-23 15:42:12'),
-(15, 'rushi', 'client', '2024-11-23 16:14:09'),
-(16, 'rushi', 'client', '2024-11-23 16:19:24'),
-(17, 'rushi', 'client', '2024-11-23 16:24:03'),
-(18, 'harsh', 'user', '2024-11-23 16:42:07'),
-(19, 'rushi', 'client', '2024-11-23 16:44:35'),
-(20, 'vipul', 'user', '2024-11-24 04:17:13'),
-(21, 'rushi', 'client', '2024-11-24 04:40:30'),
-(22, 'vipul', 'user', '2024-11-25 06:47:24'),
-(23, 'admin', 'admin', '2024-11-25 06:48:53'),
-(24, 'admin', 'admin', '2024-11-25 07:07:40'),
-(25, 'vipul', 'user', '2024-11-25 07:09:20'),
-(26, 'vipul', 'user', '2024-11-25 07:10:10'),
-(27, 'vipul', 'user', '2024-11-25 08:36:18'),
-(28, 'admin', 'admin', '2024-11-25 08:37:09'),
-(29, 'rushi', 'client', '2024-11-25 08:38:55'),
-(30, 'vipul', 'user', '2024-11-25 08:51:20'),
-(31, 'rushi', 'client', '2024-11-25 08:51:55'),
-(32, 'vips', 'client', '2024-11-25 09:07:13'),
-(33, 'rushi', 'client', '2024-11-25 09:21:19'),
-(34, 'harsh', 'user', '2024-11-25 09:21:54'),
-(35, 'rushi', 'client', '2024-11-25 09:22:50'),
-(36, 'vipul', 'user', '2024-11-25 09:29:09'),
-(37, 'vips', 'client', '2024-11-25 09:31:55'),
-(38, 'rushi', 'client', '2024-11-25 09:32:30'),
-(39, 'vipul', 'user', '2024-11-25 09:33:02'),
-(40, 'vips', 'client', '2024-11-25 09:36:00'),
-(41, 'vipul', 'user', '2024-11-25 09:50:29'),
-(42, 'vips', 'user', '2024-11-25 09:51:12'),
-(43, 'vips', 'client', '2024-11-25 09:51:20'),
-(44, 'vips', 'client', '2024-11-25 09:58:27'),
-(45, 'vipul', 'user', '2024-11-25 10:03:15'),
-(46, 'vips', 'client', '2024-11-25 10:07:02'),
-(47, 'harsh', 'user', '2024-11-25 10:07:24'),
-(48, 'rushi', 'client', '2024-11-25 10:10:03'),
-(49, 'rushi', 'client', '2024-11-25 10:59:58'),
-(50, 'harsh', 'user', '2024-11-25 11:24:29'),
-(51, 'vips', 'client', '2024-11-25 11:28:13'),
-(52, 'vipul', 'user', '2024-11-25 11:35:30'),
-(53, 'vips', 'client', '2024-11-25 11:36:02');
+(1, 'vipul', 'user', '2025-07-22 10:06:39'),
+(3, 'admin', 'admin', '2025-07-22 10:24:40'),
+(6, 'vips', 'client', '2025-07-22 10:53:49');
 
 -- --------------------------------------------------------
 
@@ -106,7 +56,7 @@ CREATE TABLE `login` (
   `Email` varchar(30) NOT NULL,
   `type` varchar(10) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `login`
@@ -131,7 +81,7 @@ CREATE TABLE `notifications` (
   `message` varchar(255) NOT NULL,
   `is_read` tinyint(1) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `notifications`
@@ -160,7 +110,7 @@ CREATE TABLE `orders` (
   `quantity` int(11) NOT NULL,
   `order_date` datetime NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
@@ -187,7 +137,7 @@ CREATE TABLE `reactivation_requests` (
   `status` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending',
   `requested_at` datetime DEFAULT current_timestamp(),
   `reason` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `reactivation_requests`
@@ -219,7 +169,7 @@ CREATE TABLE `shipment` (
   `shipment_date` datetime NOT NULL,
   `quantity` int(11) NOT NULL,
   `status` enum('Pending','Shipped','Delivered') NOT NULL DEFAULT 'Pending'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `shipment`
