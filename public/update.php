@@ -48,6 +48,7 @@ if ($conn->connect_error) {
                     <button type="submit" class="btn btn-primary btn-block">Update Password</button>
                 </form>
             </div>
+            <br>
         </div>
     </div>
 </body>
