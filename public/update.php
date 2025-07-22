@@ -22,7 +22,7 @@ if ($conn->connect_error) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <link rel="icon" type="image/x-icon" href="fav.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap">
 </head>
 <body>
     <div class="container">
@@ -44,6 +44,7 @@ if ($conn->connect_error) {
                         <label for="cnfpass">Confirm Password</label>
                         <input type="password" class="form-control" id="cnfpass" placeholder="Confirm new password" name="cnfpass" required>
                     </div>
+                    <br>
                     <button type="submit" class="btn btn-primary btn-block">Update Password</button>
                 </form>
             </div>

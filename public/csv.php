@@ -17,8 +17,8 @@ if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
 }
 
-// Fetch orders for all users (you can add WHERE clause to filter if needed)
-$query = "SELECT order_id, item_name, from_location, to_location, quantity, order_date, status FROM orders";
+
+$query = "SELECT order_id, item_name, from_location, to_location, quantity, order_date FROM orders";
 $result = $conn->query($query);
 
 if ($result->num_rows === 0) {
@@ -36,7 +36,7 @@ header("Content-Disposition: attachment; filename=\"$fileName\"");
 $output = fopen('php://output', 'w');
 
 // Add column headers
-fputcsv($output, ['Sr No', 'Order ID', 'Item Name', 'From Location', 'To Location', 'Quantity', 'Order Date', 'Status']);
+fputcsv($output, ['Sr No', 'Order ID', 'Item Name', 'From Location', 'To Location', 'Quantity', 'Order Date']);
 
 // Write data to CSV
 $srNo = 1;
@@ -48,8 +48,7 @@ while ($order = $result->fetch_assoc()) {
         $order['from_location'],
         $order['to_location'],
         $order['quantity'],
-        date('d-m-Y H:i', strtotime($order['order_date'])),
-        $order['status']
+        date('d-m-Y H:i', strtotime($order['order_date']))
     ]);
     $srNo++;
 }

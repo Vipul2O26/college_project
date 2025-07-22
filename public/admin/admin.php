@@ -20,10 +20,9 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="icon" type="image/x-icon" href="/../../assets/images/fav.png">
     
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    <link href="../../assets/css/bootstrap" 
           rel="stylesheet" 
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
-          crossorigin="anonymous">
+         >
 </head>
 <body>
     <!-- Include the admin header -->
@@ -43,9 +42,6 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-    <!-- Optional: Add a footer -->
-    <footer class="mt-5 text-center">
-        <p>&copy; <?php echo date("Y"); ?> Admin Panel. All rights reserved.</p>
-    </footer>
+ 
 </body>
 </html>

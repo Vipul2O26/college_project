@@ -35,14 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
        $user=$_SESSION['user_id'];
        
        
-        $stmt = $conn->prepare("INSERT INTO audit (Id, user_name, type, date) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("isss", $user,$U_name, $Type, $date);
+        // $stmt = $conn->prepare("INSERT INTO audit (Audit_id, user_name, type, date) VALUES (?, ?, ?, ?)");
+        // $stmt->bind_param("isss", $user,$U_name, $Type, $date);
     
-        if ($stmt->execute()) {
-            echo "<br>Successfully Inserted into audit table";
-        } else {
-            echo "<br>Error: " . $stmt->error;
-        }
+        // if ($stmt->execute()) {
+        //     echo "<br>Successfully Inserted into audit table";
+        // } else {
+        //     echo "<br>Error: " . $stmt->error;
+        // }
     
         $stmt->close();
 

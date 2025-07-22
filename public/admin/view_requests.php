@@ -17,7 +17,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch all requests with 'pending' status
+include 'adminheader.php';
+
 $stmt = $conn->prepare("SELECT * FROM reactivation_requests WHERE status = 'pending'");
 $stmt->execute();
 $result = $stmt->get_result();
@@ -31,7 +32,7 @@ $result = $stmt->get_result();
     <title>Reactivation Requests</title>
     <link rel="icon" type="image/x-icon" href="fav.png">
     <!-- Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/bootstrap" rel="stylesheet">
 </head>
 <body>
 

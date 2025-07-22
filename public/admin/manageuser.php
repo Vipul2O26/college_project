@@ -16,41 +16,80 @@ $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-include 'adminheader.php'; 
-
-echo "<h1>Welcome, " . ($_SESSION['username']) . "! Dashboard</h1>";
-
-$qry = "SELECT * FROM login WHERE active = 1 ORDER BY Id";
-$rs = mysqli_query($conn, $qry);
-
-if ($rs) {
-    echo "<table class='table table-striped table-dark'>";
-    echo "<tr><th class='table-primary'>Id</th><th class='table-primary'>Username</th><th class='table-primary'>Type</th><th class='table-primary'>Actions</th></tr>";
-    
-    while ($val = mysqli_fetch_assoc($rs)) {
-        $userId = $val['Id'];
-        $username = $val['u_name'];
-        $userType = $val['type'];
-
-        echo "<tr>";
-        echo "<td class='table-success'>" . $userId . "</td>";
-        echo "<td class='table-success'>" . $username . "</td>";
-        echo "<td class='table-success'>" . $userType . "</td>";
-
-        // Adding action buttons (View History & Delete)
-        echo "<td class='table-success'>";
-        echo "<a href='viewhistory.php?user_id=$userId' class='btn btn-info'>View History</a> ";
-        echo "<a href='delete_user.php?user_id=$userId' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Block user</a>";
-        echo "</td>";
-
-        echo "</tr>";
-    }
-    
-    echo "</table>";
-} else {
-    echo "Error: " . mysqli_error($conn);
-}
-
-$conn->close();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="../../assets/css/bootstrap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h1 {
+            margin-top: 30px;
+        }
+        .table-wrapper {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<?php include 'adminheader.php'; ?>
+
+<div class="container">
+    <h1 class="text-center text-primary">Welcome, <?= htmlspecialchars($_SESSION['username']) ?>! Dashboard</h1>
+
+    <div class="table-wrapper">
+        <?php
+        $qry = "SELECT * FROM login WHERE active = 1 ORDER BY Id";
+        $rs = mysqli_query($conn, $qry);
+
+        if ($rs) {
+            echo "<table class='table table-bordered table-hover table-striped'>";
+            echo "<thead class='table-dark'>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Type</th>
+                        <th>Actions</th>
+                    </tr>
+                  </thead>";
+            echo "<tbody>";
+
+            while ($val = mysqli_fetch_assoc($rs)) {
+                $userId = $val['Id'];
+                $username = $val['u_name'];
+                $userType = $val['type'];
+
+                echo "<tr>";
+                echo "<td>" . $userId . "</td>";
+                echo "<td>" . htmlspecialchars($username) . "</td>";
+                echo "<td>" . $userType . "</td>";
+                echo "<td>
+                        <a href='viewhistory.php?user_id=$userId' class='btn btn-sm btn-info me-2'>View History</a>
+                        <a href='delete_user.php?user_id=$userId' class='btn btn-sm btn-danger' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Block User</a>
+                      </td>";
+                echo "</tr>";
+            }
+
+            echo "</tbody></table>";
+        } else {
+            echo "<div class='alert alert-danger'>Error: " . mysqli_error($conn) . "</div>";
+        }
+
+        $conn->close();
+        ?>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

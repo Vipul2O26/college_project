@@ -15,34 +15,9 @@ if (!isset($_SESSION['user_id'])) {
    
     <link rel="icon" type="image/x-icon" href="fav.png">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-        .btn-custom {
-            background-color: #007bff;
-            color: white;
-            transition: background-color 0.3s ease;
-        }
-        .btn-custom:hover {
-            background-color: #0056b3;
-        }
-        .section-title {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #343a40;
-        }
-        .card-title {
-            color: #343a40;
-            font-weight: bold;
-        }
-    </style>
+    <link href="../../assets/css/bootstrap" rel="stylesheet">
+    
+   
 </head>
 <body>
     <?php include 'client_header.php'; ?>
@@ -61,7 +36,7 @@ if (!isset($_SESSION['user_id'])) {
             <!-- Get Shipment Card -->
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm">
-                    <img src="/prj/assets/images/ship.jpg" class="card-img-top" alt="Get Shipment">
+                    <img src="../../assets/images/ship.jpg" class="card-img-top" alt="Get Shipment">
                     <div class="card-body">
                         <h5 class="card-title">Get Shipment</h5>
                         <p class="card-text">View and manage all your shipment details.</p>
@@ -71,7 +46,7 @@ if (!isset($_SESSION['user_id'])) {
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm">
-                    <img src="/prj/assets/images/ship.jpg" class="card-img-top" alt="Get Shipment">
+                    <img src="../../assets/images/ship.jpg" class="card-img-top" alt="Get Shipment">
                     <div class="card-body">
                         <h5 class="card-title">My Shippment</h5>
                         <p class="card-text">View and manage all your shipment details.</p>
@@ -85,7 +60,7 @@ if (!isset($_SESSION['user_id'])) {
             <!-- Reports Card -->
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm">
-                    <img src="/prj/assets/images/report.png" class="card-img-top" alt="Reports">
+                    <img src="../../assets/images/report.png" class="card-img-top" alt="Reports">
                     <div class="card-body">
                         <h5 class="card-title">Reports</h5>
                         <p class="card-text">Generate and download detailed performance reports.</p>
